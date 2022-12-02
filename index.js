@@ -14,13 +14,25 @@ client.on('ready', () => {
 })
 client.login(process.env.TOKEN)
 async function GetUser(id, callback) {
+  var itemsProcessed = 0;
   client.guilds.cache.get(process.env.GUILD_ID).presences.cache.forEach(element => {
-    if (element.userId == id) callback({ username: element.user.tag, status: element.status })
-  });
+    itemsProcessed++;
+    if (element.userId == id) {
+      callback({ username: element.user.tag, status: element.status })
+      itemsProcessed = 0
+    }
+    if (itemsProcessed === client.guilds.cache.get(process.env.GUILD_ID).memberCount) {
+      callback(null);
+    }
+  })
 }
 
 app.get("/badge/status/:id", async (req, res) => {
   GetUser(req.params.id, async (data) => {
+    if (!data) {
+      res.send("Sorry... We couldn't find this user. Please verify that you have joined the following Discord server: https://discord.gg/FM8MxRra9P. If the problem persists, please open an issue at https://github.com/Av32000/Discord-Badge/issues")
+      return
+    }
     let sint = 5
     switch (data.status) {
       case "online":
@@ -48,6 +60,10 @@ app.get("/badge/status/:id", async (req, res) => {
 
 app.get("/badge/:id", async (req, res) => {
   GetUser(req.params.id, async (data) => {
+    if (!data) {
+      res.send("Sorry... We couldn't find this user. Please verify that you have joined the following Discord server: https://discord.gg/FM8MxRra9P. If the problem persists, please open an issue at https://github.com/Av32000/Discord-Badge/issues")
+      return
+    }
     let canva = await GenerateBadgeWithoutStatus(data.username)
     canva.createPNGStream().pipe(res)
   })
