@@ -53,6 +53,14 @@ app.get("/badge/:id", async (req, res) => {
   })
 })
 
+app.get("/", (req, res) => {
+  res.redirect("https://github.com/Av32000/Discord-Badge")
+})
+
+app.all('*', function (req, res) {
+  res.sendStatus(404);
+});
+
 app.listen(8080, () => {
   console.log("Github Discord Badge listening on port 8080...")
 })
