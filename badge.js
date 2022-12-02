@@ -86,4 +86,4 @@ async function Render() {
   canva.createPNGStream().pipe(fs.createWriteStream('result.png'))
 }
 
-module.exports = GenerateBadge
+module.exports = { GenerateBadge, GenerateBadgeWithoutStatus }
