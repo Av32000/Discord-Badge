@@ -23,5 +23,5 @@ The API is very simple. There are 3 path :
 - `/badge/[USER_ID]` => Generate a badge only with the username
 
 ## Exemple
-![]
-![]
+![Username_Status](https://raw.githubusercontent.com/Av32000/Discord-Badge/main/src/Status.png)
+![Username](https://raw.githubusercontent.com/Av32000/Discord-Badge/main/src/User.png)
