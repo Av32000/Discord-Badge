@@ -1,8 +1,6 @@
 const Discord = require("discord.js")
 const dotenv = require("dotenv")
 const express = require("express")
-const fs = require("fs")
-const path = require("path")
 
 const { GenerateBadge, GenerateBadgeWithoutStatus } = require("./badge")
 
@@ -23,7 +21,6 @@ async function GetUser(id, callback) {
 
 app.get("/badge/status/:id", async (req, res) => {
   GetUser(req.params.id, async (data) => {
-    console.log(data)
     let sint = 5
     switch (data.status) {
       case "online":
@@ -49,10 +46,13 @@ app.get("/badge/status/:id", async (req, res) => {
   })
 })
 
+app.get("/badge/:id", async (req, res) => {
+  GetUser(req.params.id, async (data) => {
+    let canva = await GenerateBadgeWithoutStatus(data.username)
+    canva.createPNGStream().pipe(res)
+  })
+})
+
 app.listen(8080, () => {
   console.log("Github Discord Badge listening on port 8080...")
 })
-
-// GetUserStatus("593436735380127770", (status) => {
-//   console.log(status)
-// })
