@@ -1,6 +1,6 @@
 # Discord Badge
 
-An api to esaly generate Discord badge with (or without) your status.
+An API to easly generate Discord badge with (or without) your status.
 
 ## Installation
 
@@ -19,9 +19,9 @@ GUILD_ID=[GUILD_ID]
 ## Usage
 The API is very simple. There are 3 path :
 - `/` => Redirect to this repo
-- `/badge/status/[USER_ID]` => Genreate a badge withh the status of the user
+- `/badge/status/[USER_ID]` => Genreate a badge with the status of the user
 - `/badge/[USER_ID]` => Generate a badge only with the username
 
-## Exemple
+## Exemples
 ![Username_Status](https://raw.githubusercontent.com/Av32000/Discord-Badge/main/src/Status.png)
 ![Username](https://raw.githubusercontent.com/Av32000/Discord-Badge/main/src/User.png)
