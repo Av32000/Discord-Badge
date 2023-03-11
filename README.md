@@ -7,14 +7,15 @@ An API to easly generate Discord badge with (or without) your status.
 To install the bot, follow this steps :
 
 1. Create an app on Discord Dev Portal
-2. Clone the repo
-3. Install Packages
-4. Create `.env` file with :
+2. Invite the bot to your Discord server
+3. Clone the repo
+4. Install Packages
+5. Create `.env` file with :
 ```
 TOKEN=[BOT_TOKEN]
 GUILD_ID=[GUILD_ID]
 ```
-5. Run `node index.js`
+6. Run `node index.js`
 
 ## Usage
 The API is very simple. There are 3 path :
