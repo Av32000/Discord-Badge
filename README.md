@@ -27,7 +27,7 @@ The API is very simple. There are 3 path :
 - `/badge/status/[USER_ID]` => Genreate a badge with the status of the user
 - `/badge/[USER_ID]` => Generate a badge only with the username
 
-! For `/badge/status/[USER_ID]` you can add `?json=true` to get a JSON that contains all data.
+For `/badge/status/[USER_ID]` you can add `?json=true` to get a JSON that contains all data.
 
 ## Exemples
 
