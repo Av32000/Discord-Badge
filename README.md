@@ -11,18 +11,24 @@ To install the bot, follow this steps :
 3. Clone the repo
 4. Install Packages
 5. Create `.env` file with :
+
 ```
 TOKEN=[BOT_TOKEN]
 GUILD_ID=[GUILD_ID]
 ```
+
 6. Run `node index.js`
 
 ## Usage
+
 The API is very simple. There are 3 path :
+
 - `/` => Redirect to this repo
 - `/badge/status/[USER_ID]` => Genreate a badge with the status of the user
 - `/badge/[USER_ID]` => Generate a badge only with the username
 
+! For `/badge/status/[USER_ID]` you can add `?json=true` to get a JSON that contains all data.
+
 ## Exemples
-![Username_Status](https://raw.githubusercontent.com/Av32000/Discord-Badge/main/src/Status.png)
-![Username](https://raw.githubusercontent.com/Av32000/Discord-Badge/main/src/User.png)
+
+![Username_Status](https://raw.githubusercontent.com/Av32000/Discord-Badge/main/src/Status.png) ![Username](https://raw.githubusercontent.com/Av32000/Discord-Badge/main/src/User.png)

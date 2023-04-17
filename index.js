@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 const dotenv = require("dotenv")
 const express = require("express")
 
-const { GenerateBadge, GenerateBadgeWithoutStatus } = require("./badge")
+const { GenerateBadge, GenerateBadgeWithoutStatus, GenerateJSON } = require("./badge")
 
 const app = express()
 
@@ -52,6 +52,9 @@ app.get("/badge/status/:id", async (req, res) => {
     if (sint == 5) {
       canva = await GenerateBadgeWithoutStatus(data.username)
     } else {
+      if (req.query.json == "true") {
+        return res.send(GenerateJSON(data.username, sint))
+      }
       canva = await GenerateBadge(data.username, sint)
     }
     canva.createPNGStream().pipe(res)
