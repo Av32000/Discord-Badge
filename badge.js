@@ -12,6 +12,31 @@ const Status = {
   3: "#EB459E" // Offline
 }
 
+function GenerateJSON(username, status) {
+  let status_text = ""
+  switch (status) {
+    case 0:
+      status_text = "Online"
+      break;
+    case 1:
+      status_text = "Idle"
+      break;
+    case 2:
+      status_text = "Do Not Disturb"
+      break
+    case 3:
+      status_text = "Offline"
+      break
+  }
+
+  return {
+    username: username,
+    status_id: status,
+    status_text: status_text,
+    status_color: Status[status]
+  }
+}
+
 async function GenerateBadge(username, status) {
   let fontSize = 50
 
@@ -86,4 +111,4 @@ async function Render() {
   canva.createPNGStream().pipe(fs.createWriteStream('result.png'))
 }
 
-module.exports = { GenerateBadge, GenerateBadgeWithoutStatus }
+module.exports = { GenerateBadge, GenerateBadgeWithoutStatus, GenerateJSON }
