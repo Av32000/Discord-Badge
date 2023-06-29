@@ -4,5 +4,30 @@
     "discord.js": "^14.7.1",
     "dotenv": "^16.0.3",
     "express": "^4.18.2"
-  }
+  },
+  "name": "discord-badge",
+  "description": "An api to esaly generate Discord badge with (or without) your status.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Av32000/Discord-Badge.git"
+  },
+  "keywords": [
+    "status",
+    "discord",
+    "badge",
+    "presence",
+    "badge-generator"
+  ],
+  "author": "Av32000",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Av32000/Discord-Badge/issues"
+  },
+  "homepage": "https://github.com/Av32000/Discord-Badge#readme"
 }

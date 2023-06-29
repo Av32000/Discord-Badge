@@ -14,11 +14,12 @@ client.on('ready', () => {
 })
 client.login(process.env.TOKEN)
 async function GetUser(id, callback) {
+  const user = await (await fetch("https://discord.com/api/v10/users/" + id, { headers: { "Authorization": "Bot " + process.env.TOKEN } })).json()
   var itemsProcessed = 0;
-  client.guilds.cache.get(process.env.GUILD_ID).presences.cache.forEach(element => {
+  await client.guilds.cache.get(process.env.GUILD_ID).presences.cache.forEach(element => {
     itemsProcessed++;
     if (element.userId == id) {
-      callback({ username: element.user.tag, status: element.status })
+      callback({ username: user.global_name || element.user.tag, status: element.status })
       itemsProcessed = 0
     }
     if (itemsProcessed === client.guilds.cache.get(process.env.GUILD_ID).memberCount) {
@@ -30,7 +31,7 @@ async function GetUser(id, callback) {
 app.get("/badge/status/:id", async (req, res) => {
   GetUser(req.params.id, async (data) => {
     if (!data) {
-      res.send("Sorry... We couldn't find this user. Please verify that you have joined the following Discord server: https://discord.gg/FM8MxRra9P. If the problem persists, please open an issue at https://github.com/Av32000/Discord-Badge/issues")
+      res.status(404).send("Sorry... We couldn't find this user. Please verify that you have joined the following Discord server: https://discord.gg/FM8MxRra9P. If the problem persists, please open an issue at https://github.com/Av32000/Discord-Badge/issues")
       return
     }
     let sint = 5
