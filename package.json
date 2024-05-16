@@ -3,7 +3,7 @@
     "canvas": "^2.10.2",
     "discord.js": "^14.7.1",
     "dotenv": "^16.0.3",
-    "express": "^4.18.2"
+    "express": "^4.19.2"
   },
   "name": "discord-badge",
   "description": "An api to esaly generate Discord badge with (or without) your status.",
